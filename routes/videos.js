@@ -12,7 +12,7 @@ const readVideos = () => {
         const data = fs.readFileSync(filePath);
         return JSON.parse(data);
     } catch (error) {
-        console.log("error reading videos file")
+        console.log("error reading videos file", error)
     }
 };
 
@@ -21,7 +21,7 @@ const writeVideos = (videos) => {
     try {
         fs.writeFileSync(filePath, JSON.stringify(videos));
     } catch (error) {
-        console.log("error writing to videos file")
+        console.log("error writing to videos file", error)
     }
 };
 
@@ -78,8 +78,6 @@ router.post('/', (req, res) => {
         res.status(500)
     }
 });
-
-
 
 
 

@@ -13,14 +13,16 @@ app.use(cors());
 app.use(express.json());
 
 
-
-
-
-app.listen(PORT, () => {
-    console.log(`server is listening on ${PORT}`);
-});
+app.use(express.static("public"))
 
 app.get("/", (req, res) => {
     res.send("server is running on port 8080!");
 });
 
+
+app.use('/videos', videoRoutes);
+
+
+app.listen(PORT, () => {
+    console.log(`server is listening on ${PORT}`);
+});
