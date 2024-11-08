@@ -1,10 +1,11 @@
 import express from 'express';
 import fs from 'fs';
 import { v4 as uuidv4 } from 'uuid';
+import path from 'path';
 
 const router = express.Router();
 
-const filePath = '../data/video-details.json';
+const filePath = path.resolve('data', 'video-details.json');
 
 
 const readVideos = () => {
@@ -27,12 +28,8 @@ const writeVideos = (videos) => {
 
 
 router.get("/", (req, res) => {
-    try {
         const videos = readVideos();
         res.json(videos);
-    } catch (error) {
-        res.status(500)
-    }
 });
 
 
