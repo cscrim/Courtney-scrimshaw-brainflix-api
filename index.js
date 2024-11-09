@@ -1,8 +1,6 @@
-import express from 'express';
-import axios from 'axios';
-import cors from 'cors';
-import fs from 'node:fs';
-import videoRoutes from './routes/videos.js';
+import express from "express";
+import cors from "cors";
+import videoRoutes from "./routes/videos.js";
 
 const app = express();
 
@@ -14,16 +12,8 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-
-
-// app.get("/", (req, res) => {
-//     res.send("server is running on port 8080!");
-// });
-
-
-app.use('/videos', videoRoutes);
-
+app.use("/videos", videoRoutes);
 
 app.listen(PORT, () => {
-    console.log(`server is listening on ${PORT}`);
+  console.log(`server is listening on ${PORT}`);
 });
